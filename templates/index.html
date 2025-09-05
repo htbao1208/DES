@@ -114,6 +114,22 @@
             font-size: 14px;
             color: #666;
         }
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
     </style>
 </head>
 <body>
@@ -159,8 +175,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>I</th>
-                                <th>KI</th>
+                                <th>i</th>
+                                <th>Ki</th>
                             </tr>
                         </thead>
                         <tbody id="ki-table-body">
@@ -171,8 +187,7 @@
                             </tr>
                             {% else %}
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td colspan="2">Chưa có dữ liệu</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -184,24 +199,21 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>I</th>
-                                <th>KI left</th>
+                                <th>i</th>
+                                <th>K left</th>
                                 <th>K right</th>
                             </tr>
                         </thead>
                         <tbody id="k-table-body">
                             {% for idx, (k_l, k_r) in k_left_right_data %}
                             <tr>
-                                <td>{{ idx }}</td>
+                                <td>{{ idx + 1 }}</td>
                                 <td>{{ k_l }}</td>
                                 <td>{{ k_r }}</td>
                             </tr>
                             {% else %}
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td colspan="3">Chưa có dữ liệu</td>
                             </tr>
                             {% endfor %}
                         </tbody>
