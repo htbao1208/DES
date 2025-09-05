@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Hàm sinh khóa ngẫu nhiên
 def generate_random_key():
-    chars = string.ascii_uppercase + string.digits
+    chars = string.digits + 'ABCDEF'
     return ''.join(secrets.choice(chars) for _ in range(16))
 
 @app.route('/', methods=['GET', 'POST'])
@@ -30,7 +30,15 @@ def index():
         # Xử lý sinh khóa
         if generate_key:
             key = generate_random_key()
-            print("????")
+            return render_template('index.html', 
+                          plaintext=plaintext,
+                          result = result,
+                          key=key,
+                          action=action,
+                          ki_data=ki_data,
+                          k_left_right_data=k_left_right_data,
+                          message=message,
+                          message_type=message_type)
         
         # Kiểm tra dữ liệu đầu vào
         if not plaintext:
